@@ -184,7 +184,7 @@ class ContentService {
         description:
             'Find Car Sale helps you easily list and discover cars for sale in your neighborhood, moving beyond just a paper sign on the windshield. Buyers can quickly browse local listings, view details, and connect with sellers right from the app.',
         imageUrl: 'assets/find_car_sale.jpeg',
-        vimeoVideoId: '789123456',
+        vimeoVideoId: '1120534565',
         appStoreUrl: 'https://apps.apple.com/app/find-car-sale/id789123456',
         playStoreUrl:
             'https://play.google.com/store/apps/details?id=com.findcarsale.app',
