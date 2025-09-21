@@ -25,13 +25,12 @@ class _CustomerReviewsScreenState extends State<CustomerReviewsScreen>
       CurvedAnimation(parent: _animationController, curve: Curves.easeInOut),
     );
 
-    _slideAnimation =
-        Tween<Offset>(begin: const Offset(0, 0.3), end: Offset.zero).animate(
-          CurvedAnimation(
-            parent: _animationController,
-            curve: Curves.easeOutCubic,
-          ),
-        );
+    _slideAnimation = Tween<Offset>(
+      begin: const Offset(0, 0.3),
+      end: Offset.zero,
+    ).animate(
+      CurvedAnimation(parent: _animationController, curve: Curves.easeOutCubic),
+    );
 
     _animationController.forward();
   }
@@ -121,21 +120,25 @@ class _CustomerReviewsScreenState extends State<CustomerReviewsScreen>
     final reviews = _getReviewsData();
 
     return Column(
-      children: reviews.asMap().entries.map((entry) {
-        final index = entry.key;
-        final review = entry.value;
+      children:
+          reviews.asMap().entries.map((entry) {
+            final index = entry.key;
+            final review = entry.value;
 
-        return TweenAnimationBuilder<double>(
-          duration: Duration(milliseconds: 600 + (index * 150)),
-          tween: Tween(begin: 0.0, end: 1.0),
-          builder: (context, value, child) {
-            return Transform.translate(
-              offset: Offset(0, 30 * (1 - value)),
-              child: Opacity(opacity: value, child: _buildReviewCard(review)),
+            return TweenAnimationBuilder<double>(
+              duration: Duration(milliseconds: 600 + (index * 150)),
+              tween: Tween(begin: 0.0, end: 1.0),
+              builder: (context, value, child) {
+                return Transform.translate(
+                  offset: Offset(0, 30 * (1 - value)),
+                  child: Opacity(
+                    opacity: value,
+                    child: _buildReviewCard(review),
+                  ),
+                );
+              },
             );
-          },
-        );
-      }).toList(),
+          }).toList(),
     );
   }
 
@@ -201,12 +204,14 @@ class _CustomerReviewsScreenState extends State<CustomerReviewsScreen>
                           );
                         }),
                         const SizedBox(width: 8),
-                        Text(
-                          review['appName'],
-                          style: TextStyle(
-                            fontSize: 12,
-                            color: review['appColor'],
-                            fontWeight: FontWeight.w500,
+                        Flexible(
+                          child: Text(
+                            review['appName'],
+                            style: TextStyle(
+                              fontSize: 12,
+                              color: review['appColor'],
+                              fontWeight: FontWeight.w500,
+                            ),
                           ),
                         ),
                       ],
