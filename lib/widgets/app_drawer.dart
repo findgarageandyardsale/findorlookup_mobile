@@ -3,6 +3,10 @@ import '../screens/our_apps_screen.dart';
 import '../screens/why_choose_us_screen.dart';
 import '../screens/customer_reviews_screen.dart';
 import '../screens/privacy_policy_screen.dart';
+import '../screens/tutorials_screen.dart';
+import '../screens/tips_screen.dart';
+import '../screens/faq_screen.dart';
+import '../screens/news_screen.dart';
 
 class AppDrawer extends StatelessWidget {
   const AppDrawer({super.key});
@@ -90,6 +94,70 @@ class AppDrawer extends StatelessWidget {
                         context,
                         MaterialPageRoute(
                           builder: (context) => const OurAppsScreen(),
+                        ),
+                      );
+                    },
+                  ),
+
+                  _buildDrawerItem(
+                    context,
+                    icon: Icons.school,
+                    title: 'Tutorials & Guides',
+                    subtitle: 'Learn how to use our apps',
+                    onTap: () {
+                      Navigator.pop(context);
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const TutorialsScreen(),
+                        ),
+                      );
+                    },
+                  ),
+
+                  _buildDrawerItem(
+                    context,
+                    icon: Icons.lightbulb_outline,
+                    title: 'Tips & Best Practices',
+                    subtitle: 'Expert advice and tips',
+                    onTap: () {
+                      Navigator.pop(context);
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const TipsScreen(),
+                        ),
+                      );
+                    },
+                  ),
+
+                  _buildDrawerItem(
+                    context,
+                    icon: Icons.help_outline,
+                    title: 'FAQ',
+                    subtitle: 'Frequently asked questions',
+                    onTap: () {
+                      Navigator.pop(context);
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const FAQScreen(),
+                        ),
+                      );
+                    },
+                  ),
+
+                  _buildDrawerItem(
+                    context,
+                    icon: Icons.newspaper,
+                    title: 'News & Updates',
+                    subtitle: 'Latest news and updates',
+                    onTap: () {
+                      Navigator.pop(context);
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const NewsScreen(),
                         ),
                       );
                     },
